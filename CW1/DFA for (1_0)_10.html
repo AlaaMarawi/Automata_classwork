@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://maeyler.github.io/Auto/work/DFA1.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>DFA for (1|0)*1 </title>
+
+<script>
+"use strict";
+function delta(q, c) { // (1|0)*10
+    if (q=='A' && c=='0') return 'A'
+    if (q=='B' && c=='0') return 'C'
+    if (q=='C' && c=='0') return 'A' 
+    if (c=='1') return 'B'
+    return '';  //default -- no transition
+}
+function accept(w, F='C', q='A') {
+    //w: input String
+    //F: final state(s)
+    //q: current state
+    let i = 0, txt = q
+    while (i < w.length) {
+        q = delta(q, w[i])
+        if (q == '') break
+        i++; txt += " -> "+q
+    }
+    input.selectionStart = i
+    input.selectionEnd = i+1
+    let a = (q!='' && F.includes(q))
+    return txt+'  '+(a? "Accept" : "Reject")
+}
+function test() {
+    let w = input.value, s = "  "
+    for (let c of w) s += c+"    "
+    s += '\n'+accept(w, final.value)
+    console.log(s); out.innerHTML = s
+}
+</script>
+</head>
+
+<body>
+
+<h2 id="title">DFA for (1|0)*1</h2>
+
+<p>1 ended automation</p>
+
+w = <input id="input" type="text" value="01001010" onchange="test()">  
+F = <input id="final" type="text" value="CB" onchange="test()" style="width:30px">
+
+<pre id="out">  0    1    0    0    1    0    1    
+A -&gt; A -&gt; B -&gt; C -&gt; A -&gt; B -&gt; C -&gt; B  Accept</pre>
+
+<hr>
+<b>Logic</b>
+
+<style>
+    table { 
+        border-collapse: collapse; 
+        margin: 0 50px; 
+    }
+    th { 
+        color: blue; 
+        padding: 5px 12px; 
+    }
+    td { 
+        border: 1px solid blue; 
+        padding: 5px 12px; 
+        text-align: center; 
+    }
+</style>
+<table>
+<tbody><tr><th></th><th>0</th><th>1</th></tr>
+<tr><th>&gt; A</th><td>A</td><td>B</td></tr>
+<tr><th>* B</th><td>C</td><td>B</td></tr>
+<tr><th>* C</th><td>A</td><td>B</td></tr>
+</tbody></table>
+
+<pre id="sample">function delta(q, c) { // (1|0)*10
+    if (q=='A' &amp;&amp; c=='0') return 'A'
+    if (q=='B' &amp;&amp; c=='0') return 'C'
+    if (q=='C' &amp;&amp; c=='0') return 'A' 
+    if (c=='1') return 'B'
+    return '';  //default -- no transition
+}
+function accept(w, F='C', q='A') {
+    //w: input String
+    //F: final state(s)
+    //q: current state
+    let i = 0, txt = q
+    while (i &lt; w.length) {
+        q = delta(q, w[i])
+        if (q == '') break
+        i++; txt += " -&gt; "+q
+    }
+    input.selectionStart = i
+    input.selectionEnd = i+1
+    let a = (q!='' &amp;&amp; F.includes(q))
+    return txt+'  '+(a? "Accept" : "Reject")
+}</pre>
+
+<hr>
+
+<script>
+    title.innerText = document.title
+    sample.innerText = delta 
+    test();
+</script>
+
+
+
+</body></html>
+
+
+

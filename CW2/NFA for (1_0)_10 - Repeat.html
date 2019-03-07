@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://maeyler.github.io/Auto/work/NFA1.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>NFA & DFA for (1|0)*00 </title>
+</head>
+
+<body>
+
+<h2 id="title">NFA & DFA for (1|0)*00</h2>
+
+<p>Non-deterministic finite automaton</p>
+
+w = <input id="input" type="text" value="01001010" onchange="test()">  
+F = <input id="final" type="text" value="c" onchange="test()" style="width:30px">
+
+<pre id="out"> true or false</pre>
+<b>Accepted integers between 0 and 50</b>
+<pre id="out1">num list</pre>
+<hr>
+<b>Logic (NFA)</b>
+
+<style>
+    table { 
+        border-collapse: collapse; 
+        margin: 0 50px; 
+    }
+    th { 
+        color: blue; 
+        padding: 5px 12px; 
+    }
+    td { 
+        border: 1px solid blue; 
+        padding: 5px 12px; 
+        text-align: center; 
+    }
+</style>
+<table>
+	<tbody><tr><th></th><th>0</th><th>1</th></tr>
+	<tr><th>&gt; a</th><td>ab</td><td>a</td></tr>
+	<tr><th> b</th><td>c</td><td>ϕ</td></tr>
+	<tr><th>* c</th><td>ϕ</td><td>ϕ</td></tr>
+	</tbody>
+</table>
+
+<b>Logic (DFA)</b>
+
+<table>
+	<tbody><tr><th></th><th>0</th><th>1</th></tr>
+	<tr><th>&gt; a</th><td>b</td><td>a</td></tr>
+	<tr><th> b</th><td>c</td><td>a</td></tr>
+	<tr><th>* c</th><td>c</td><td>a</td></tr>
+	</tbody>
+</table>
+
+<pre id="sample">function delta(q, c) { // (1|0)*10<br>    if (q=='a' &amp;&amp; c=='0') return 'a'<br>    if (q=='a' &amp;&amp; c=='1') return 'ab'<br>    if (q=='b' &amp;&amp; c=='0') return 'c' <br>    return '';  //default -- no transition<br>}<br>function accept(w, F='c', Q='a') {<br>    //w: input String<br>    //F: final state(s)<br>    //Q: current state(s)<br>    let i = 0, txt = Q<br>    while (i &lt; w.length) {<br>        let c = w[i], T=''<br>        for (let q of Q) <br>            T = union(T, delta(q, c))<br>        Q = T<br>        if (Q == '') break<br>        i++; txt += ", "+c+" -&gt; "+Q+'\n'+Q<br>    }<br>    input.selectionStart = i<br>    input.selectionEnd = i+1<br>    let a = intersect(Q, F).length &gt; 0<br>    return txt+'  '+(a? "Accept" : "Reject")<br>}</pre>
+
+<hr>
+
+<script>
+"use strict";
+function union(a, b) { //set operation using strings
+    let s = a
+    for (let x of b) if (!a.includes(x)) s += x
+    return s
+}
+function intersect(a, b) {
+    let s = ''
+    for (let x of b) if (a.includes(x)) s += x
+    return s
+}
+function delta(q, c) { // (1|0)*00 // NFA
+    if (q=='a' && c=='0') return 'ab'
+    if (q=='a' && c=='1') return 'a'
+    if (q=='b' && c=='0') return 'c' 
+    return '';  //default -- no transition
+}
+function accept(w, F='c', Q='a') { //NFA
+    //w: input String
+    //F: final state(s)
+    //Q: current state(s)
+    let i = 0, txt = Q
+    while (i < w.length) {
+        let c = w[i], T=''
+        for (let q of Q) 
+            T = union(T, delta(q, c))
+        Q = T
+        if (Q == '') break
+        i++; txt += ", "+c+" -> "+Q+'\n'+Q
+    }
+    input.selectionStart = i
+    input.selectionEnd = i+1
+    let a = intersect(Q, F).length > 0
+    return (a? true : false);
+}
+//_____________ DFA___________:
+function deltaD(q, c) { //DFA : (1|0)*00
+    if (q=='a' && c=='0') return 'b'
+    if (q=='b' && c=='0') return 'c'
+    if (q=='c' && c=='0') return 'c' 
+    if (c=='1') return 'a'
+    return '';  //default -- no transition
+}
+function acceptD(w, F='c', q='a') {
+    //w: input String
+    //F: final state(s)
+    //q: current state
+    let i = 0, txt = q
+    while (i < w.length) {
+        q = deltaD(q, w[i]);
+        if (q == '') break
+        i++; txt += " -> "+q
+    }
+    input.selectionStart = i
+    input.selectionEnd = i+1
+    let a = (q!='' && F.includes(q))
+    return (a? true : false)
+}
+
+function regexControl(n){
+let e = /00$/;
+return e.test(n);
+}
+var s="";
+function test() {
+     s = "NFA: "+(accept(input.value, final.value)? "Accept" : "Reject");
+s+=" | DFA: "+(acceptD(input.value, final.value)? "Accept" : "Reject");
+s+=" | RegEx: "+regexControl(input.value).toString();
+    console.log(s);  out.innerHTML = s;
+
+}
+
+    title.innerText = document.title;
+    sample.innerText = deltaD+'\n'+acceptD;
+    test();
+out1.innerText ="";
+
+
+     let a = [] ,b=[],c=[];
+     for (let n=1; n<50; n++) {
+          let w = n.toString(2)  // to binary
+          if (regexControl(w)) 
+		   {
+		   a.push(n)
+			//out1.innerText+="| "+n;
+		   }
+		   if(accept(w))b.push(n);
+		   if(acceptD(w))c.push(n);
+     }
+
+     out1.innerText="NFA:  "
+     for(let i of a){
+     	out1.innerText+=i+" |";
+     }
+     out1.innerText+="\n";
+
+     out1.innerText+="DFA:  "
+     for(let i of b){
+     	out1.innerText+=i+" |";
+     }
+     out1.innerText+="\n";
+     out1.innerText+="RegEx: "
+     for(let i of c){
+     	out1.innerText+=i+" |";
+     }
+
+
+</script>
+
+
+</body></html>
