@@ -3,7 +3,7 @@ classwork of Automata
 <h3>Homeworks</h3>
 <li>
 HW#1
-<a href= "https://alaamarawi.github.io/Automata_classwork/HW1/Regular%20Expressions_lab4.html </a>
+<a href= "https://alaamarawi.github.io/Automata_classwork//HW1/Regular%20Expressions_lab4.html </a>
 </li>
 <h3>Classworks</h3>
 <li>
