@@ -12,7 +12,7 @@ CW#1
 </li>
 <li>
 CW#2
-<a href= "https://alaamarawi.github.io/Automata_classwork/CW2/NFA%20for%20(1_0)_10%20-%20Repeat.htm">Non_Deterministic Finite Automata and RegExp</a>
+<a href= "https://alaamarawi.github.io/Automata_classwork/CW2/NFA%20for%20(1_0)_10%20-%20Repeat.html">Non_Deterministic Finite Automata and RegExp</a>
 </li>
 <li>
 CW#3
