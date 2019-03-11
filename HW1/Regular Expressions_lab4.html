@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://maeyler.github.io/Auto/work/RegExp.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>Regular Expressions </title>
+  <style>
+    #pat { width: 200px; }
+    #inp { width: 450px;
+ 			height: 80px; }
+    .stringFound { color: blue; }
+    .arrayFound {color : red;}
+  </style>
+</head>
+
+<body>
+<h2 id="title">Regular Expressions</h2>
+Input
+<p>
+
+<textarea id="inp" onkeyup="checkReg()" cols="40" max-rows="10"></textarea>
+</p>
+<pre id="out" rows="4"> </pre>
+
+<hr>
+<b>Sample code</b>
+<pre id="sample"></pre>
+<hr>
+<p>Ref: <a href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html" target="ExternalDocument">Term project by Emrah Tema</a>
+</p>
+
+<script>
+"use strict";
+
+function setValues() {
+         inp.value= 
+    "var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot']\n"+
+	'var fruits = ["Apple", "Banana", "Orange"];\n'+
+	"var years = [1950, 1960, 1970, 1980, 1990, 2000, 2010];\n"
+    checkReg();
+}
+
+
+let pat1=/"([^"]+)"|'([^']+)'/;
+let pat2=/\[([^\]]+)\]/;
+
+function checkReg(){
+	if( inp.value){
+		out.innerHTML = inp.value;
+		if(pat1.test(inp.value)){
+   			const exp = new RegExp(pat1,'g');
+        	const str = "<span class=stringFound>$&</span>";//$&the matched string
+        	out.innerHTML = out.innerHTML.replace(exp, str);
+   		}
+   		if(pat2.test(inp.value)){
+    		const exp2 = new RegExp(pat2,'g');
+        	const str2 = "<span class=arrayFound>$&</span>";
+        	out.innerHTML = out.innerHTML.replace(exp2, str2);
+   		}
+	}
+}
+    sample.innerText = setValues.toString()+"\n"+checkReg.toString();
+    title.innerText = document.title; 
+    setValues();
+
+</script>
+
+</body></html>
