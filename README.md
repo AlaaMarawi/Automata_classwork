@@ -18,3 +18,7 @@ CW#2
 CW#3
 <a href= "https://alaamarawi.github.io/Automata_classwork/CW3/Regular%20Expressions_lab4.html">RegExp</a>
 </li>
+<li>
+CW#4
+<a href= "https://alaamarawi.github.io/Automata_classwork/CW4/CFG%20for%20Addition.html">Context-free grammar for decimal point</a>
+</li>
