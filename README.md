@@ -5,6 +5,10 @@ classwork of Automata
 HW#1
 <a href= "https://alaamarawi.github.io/Automata_classwork//HW1/Regular%20Expressions_lab4.html">Regular Expressions</a>
 </li>
+<li>
+HW#2
+<a href= "https://alaamarawi.github.io/Automata_classwork//HW2/Expression.html">Expression Parser: add MOD(%), make Math's methods usable by name</a>
+</li>
 <h3>Classworks</h3>
 <li>
 CW#1
@@ -21,4 +25,8 @@ CW#3
 <li>
 CW#4
 <a href= "https://alaamarawi.github.io/Automata_classwork/CW4/CFG%20for%20Addition.html">Context-free grammar for decimal point</a>
+</li>
+<li>
+CW#5
+<a href= "https://alaamarawi.github.io/Automata_classwork/CW5/Expression.html">Expression Parser: add Power(^) and implement toTree()</a>
 </li>
