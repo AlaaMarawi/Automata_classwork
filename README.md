@@ -30,3 +30,7 @@ CW#4
 CW#5
 <a href= "https://alaamarawi.github.io/Automata_classwork/CW5/Expression.html">Expression Parser: add Power(^) and implement toTree()</a>
 </li>
+<li>
+CW#6
+<a href= "https://alaamarawi.github.io/Automata_classwork/CW6/PDA1.html">Push-down automata: Modify delta() for given grammer</a>
+</li>
