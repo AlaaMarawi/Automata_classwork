@@ -34,3 +34,7 @@ CW#5
 CW#6
 <a href= "https://alaamarawi.github.io/Automata_classwork/CW6/PDA1.html">Push-down automata: Modify delta() for given grammer</a>
 </li>
+<h3>Project</h3>
+<li>
+<a href= "https://alaamarawi.github.io/Automata_classwork/Project_RegExp/RegexTutorial-v1.html">Regular Expression Tutorial</a>
+</li>
