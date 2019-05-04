@@ -1,85 +1,219 @@
 <!DOCTYPE html>
 <!-- saved from url=(0046)https://maeyler.github.io//Auto/work/CFG1.html -->
 <html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <meta name="viewport" content="width=device-width">
-    <title>Learn Regular Expressions with interactive exercises </title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="viewport" content="width=device-width">
+	<title>Learn Regular Expressions with interactive exercises </title>
+
+
+	<style type="text/css">
+		.container{
+			//border-width: 1px;
+			border: 2px solid red;
+			//border-color: black;
+			width: 85%;
+			margin: 7%;
+			margin-top: 2%;
+			padding: 2%;
+			padding-top: .1%;
+		}
+		.found { color: LightSeaGreen; }
+		div{
+			 //border: 1px solid gray;
+
+		}
+		th {
+			text-align: left;
+		}
+		
+
+	</style>
+
 </head>
 
 <body>
 
 <!--  <h2 id="title"></h2>
 -->
-<div class="w3-container">
+<div class="container">
+	<h2>Learn Regular Expressions with interactive exercises </h2>
 
-<h3>Lesson 1 : Introduction to RegExp</h3>
-<div class="w3-light-grey">
-  <div class="w3-container w3-round-xlarge w3-green w3-center" style="width:25%">25%</div>
-</div>
-<br>
+	<h3 id="lessonTitle"></h3>
+
 
 	<!-- explanation: -->
 	<!-- ..... -->
+	<div>
 
-<p>* lesson 2 explaining <br> * Examples for lesson 2 <br>* lesson map <br>* general map</p>
+		<p id="lessonintro">Regular expressions are extremely useful in extracting information from text such as code, log files, spreadsheets, or even documents. And while there is a lot of theory behind formal languages, the following lessons and examples will explore the more practical uses of regular expressions so that you can use them as quickly as possible.
+		</p>
+		<img src="check1.PNG" width=15 height=15> Example:
+		<p id="lessonexample">
+			ddsfd
+		</p>
 
-<div >
-	<!-- lesson -->
-	<h4>Exercise 1.1 :Matching Characters</h4>
 
-	<!-- Exercise -->
-	<div  class="w3-light-grey">
-	<table>
-		<tbody>
-			<tr style="border-bottom: solid 2px black;font-weight: bold">
-				<td style="width: 8em; ">
-				task
-				</td>
-				<td style="width: 8em">
-				text	
-				</td>
-				<td style="width: 8em">
-				stat	
-				</td>
-			</tr>
-			<tr style="border-bottom: solid 2px green;">
-				<td style="width: 8em">
-				match
-				</td>
-				<td style="width: 8em">
-				abcabc	
-				</td>
-				<td style="width: 8em">
-					<div>
-						<img src="check1.PNG" width=20 height=20>	
-					</div>
-				</td>
-			</tr>
-			<tr style="border-bottom: solid 2px green;">
-				<td style="width: 8em">
-				not match
-				</td>
-				<td style="width: 8em">
-				abc	
-				</td>
-				<td style="width: 8em">
-					<div>
-						<img src="check1.PNG" width=20 height=20>	
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<input id="reginput" type="text" value="" > 
-	<input type="submit" name="" value="continue" class="w3-light-green">
 
 	</div>
-	<hr>
+	<img src='example.png' width=20 height=20 style="float:left">
+	<h3> Exercises:</h3>
 
-</div>	
+	<div class="w3-light-grey w3-round-xlarge" style="width: 80%">
+		<div class="w3-container w3-round-xlarge w3-green w3-center" style="width:1%">0</div>
+	</div>
 
-<script>
-"use strict";
+	<div >
+		<!-- Exercise -->
+		<h4 id="exTitle"></h4>
+
+
+		<div  class="w3-light-grey w3-round-large" style="width: 80% ;padding-left:1% ">
+			<table id="myTable" style="width:90% ">
+
+			</table>
+			<input id="pat" type="text" placeholder="Try your pattern here" style="max-width:100%;width:75%" onkeyup="checkRE()"> 
+			<input type="button" name="" value="continue"  style="width: 100px;height:40px ;color: white;background-color: YellowGreen">
+		</div>
+
+		<div id="navigateEx" style="margin-top:3%; padding-left:25%;width:80%;">
+			<button onclick="prevExercise();"  style="width:100px;background-color: YellowGreen;color: white">Previous Exercise</button>
+			<button onclick="nextExercise();"  style="width:100px;background-color:YellowGreen;color: white ">Next Exercise</button>
+		</div>
+		<br>
+		<div style="width:100%;height: 50px">
+			<input type="button" class="w3-light-green w3-round-xlarge " onclick="prevlesson();" value="<Previous Lesson" style="width:155px;height:75%;">
+			<input type="button" class="w3-light-green w3-round-xlarge " onclick="nextlesson();" value="Next Lesson>" style="width:155px;height:75%;float:right;">
+		</div>
+
+	</div>	
+
+	<div> <p>
+	
+	</p> references:dsfsdf</div>
+
+	<script>
+		"use strict";
+		var currentLesson=1;
+		var currentEx=1;
+		var lessons=[
+//lesson 1:
+{title:"Lesson 1 : Introduction to RegExp",
+intro:"intro to leson 1 ",
+example:"example lesson1",
+exercises:[
+ {title:"Exercise 1.1 :Matching Characters",
+ rows:[
+ {task:"match",text:"abcabc",state:0},
+ {task:"match",text:"aabc",state:0},
+ {task:"no match",text:"abbc",state:0}
+ ]
+},
+  {title:"Exercise 1.2 :bbb",
+ rows:[
+ {task:"match",text:"add",state:0},
+ {task:"match",text:"dbdb",state:0},
+ {task:"no match",text:"abcabc",state:0}
+ ]
+}
+]
+},
+//lesson 2:
+{title:"Lesson 2 : adv RegExp",
+intro:"intro to leson 2 ",
+example:"example leson2",
+exercises:[
+//exercise 1:
+{title:"ex2.1 title",
+rows:[{task:"match",text:"rrrr",state:0},{task:"match",text:"rrrr",state:0},{task:"no match",text:"rrrr",state:0}]
+},
+//exercise 2:
+{title:"ex2.2 title",
+rows:[{task:"match",text:"rara",state:0},{task:"match",text:"rar",state:0},{task:"no match",text:"raar",state:0}]}]
+}
+
+];
+function switchLesson(lesson){
+	document.getElementById('lessonTitle').innerHTML=" <img src='expl.png' width=20 height=25>"+lessons[lesson-1].title;
+	document.getElementById('lessonintro').innerHTML= "<img src='check1.PNG' width=15 height=15> "+lessons[lesson-1].intro;
+	document.getElementById('lessonexample').innerHTML= lessons[lesson-1].example;
+
+	switchEx(1);	
+}
+var table= document.getElementById("myTable");
+function switchEx(ex){
+	document.getElementById('exTitle').innerHTML= lessons[currentLesson-1].exercises[ex-1].title;
+	
+	
+	table.innerHTML="";
+	table.innerHTML=
+	"<tr style='text-align:left;border: 1px solid black '><td><b>task</b></td><td><b>text</b></td><td><b>check	</b></td></tr>";
+	for(let r of lessons[currentLesson-1].exercises[ex-1].rows){
+		var row=table.insertRow();
+		row.insertCell(0).innerHTML=r.task;
+		row.insertCell(1).innerHTML=r.text;
+		row.insertCell(2).innerHTML="";
+	}
+	for(let r of table.rows){
+    	currentinputs.push(r.cells[1].innerHTML);
+    }
+	//table.rows[0].cells[0].innerHTML="";
+	//document.getElementById('lessonexample').innerHTML= lessons[lesson].example;
+}
+function nextExercise(){
+	if(lessons[currentLesson-1].exercises.length>currentEx){
+		currentEx++;
+		switchEx(currentEx);
+	}
+}
+function prevExercise(){
+	if(currentEx>1){
+		currentEx--;
+		switchEx(currentEx);
+	}
+}
+function nextlesson(){
+	if(currentLesson< lessons.length){
+		currentLesson++;
+		switchLesson(currentLesson);
+	}
+}
+
+function prevlesson(){
+	if(currentLesson>1){
+		currentLesson--;
+		switchLesson(currentLesson);
+	}
+}
+//check regex:
+var pattern= document.getElementById("pat");
+let currentinputs=[];
+
+function checkRE() {
+    if (pattern.value) {//if not empty
+try{
+        const exp = new RegExp(pattern.value,'g');
+        const str = "<span class=found>$&</span>";
+               // out.innerHTML = inp.value.replace(exp, str);
+       //console.log(table.rows.length);
+       for (let i =1 ; i <currentinputs.length; i++) {
+       		console.log(table.rows[i].cells[1].innerHTML);
+       		table.rows[i].cells[1].innerHTML=currentinputs[i].replace(exp, str);
+       }
+}catch{
+
+}
+
+    }else{
+    	for (let i =1 ; i <currentinputs.length; i++) {
+       		table.rows[i].cells[1].innerHTML=currentinputs[i];
+       }
+    }
+}
+switchLesson(currentLesson);
+
+
+
+
 
 </script>
 
