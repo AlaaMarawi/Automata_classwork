@@ -127,19 +127,19 @@
 <a name="Regex Intro"></a>
 <div id="whatisregex">
 	<h3>What Is Regex ?</h3>
-	<p><img src="check1.PNG" width=15 height=15>
+	<p><img src="images/check1.png" width=15 height=15>
 		Regex,Regexp or Regular Expressions:
 		<br>
 		A regular expression is a special text string for describing a search pattern. In other way: A Sequence of characters that defines a search pattern, it helps to validate a series of characters for matching. So, regular expression basically helps to describe the complex pattern in the text. It can be used search a particular string, pattern, replace text, data.
-		<br>  <img src="check1.PNG" width=15 height=15>
+		<br>  <img src="images/check1.png" width=15 height=15>
 		 Pattern matches may vary from a precise equality to a very general similarity, as controlled by the metacharacters. For example, . is a very general pattern, [a-z] (match all lower case letters from 'a' to 'z') is less general and a is a precise pattern (matches just 'a'). The metacharacter syntax is designed specifically to represent prescribed targets in a concise and flexible way to direct the automation of text processing of a variety of input data, in a form easy to type using a standard ASCII keyboard.
-		<br><img src="check1.PNG" width=15 height=15>
+		<br><img src="images/check1.png" width=15 height=15>
 		 A regex processor translates a regular expression in the above syntax into an internal representation which can be executed and matched against a string representing the text being searched in.
 	</p>
 	<h3>History</h3>
 	<p>
-	<img src="check1.PNG" width=15 height=15> Regular expressions originated in 1951, when mathematician Stephen Cole Kleene described regular languages using his mathematical notation called regular sets. These arose in theoretical computer science, in the subfields of automata theory (models of computation) and the description and classification of formal languages. Other early implementations of pattern matching include the SNOBOL language, which did not use regular expressions, but instead its own pattern matching constructs.
-	<br><img src="check1.PNG" width=15 height=15> 
+	<img src="images/check1.png" width=15 height=15> Regular expressions originated in 1951, when mathematician Stephen Cole Kleene described regular languages using his mathematical notation called regular sets. These arose in theoretical computer science, in the subfields of automata theory (models of computation) and the description and classification of formal languages. Other early implementations of pattern matching include the SNOBOL language, which did not use regular expressions, but instead its own pattern matching constructs.
+	<br><img src="images/check1.png" width=15 height=15> 
 Regular expressions entered popular use from 1968 in two uses: pattern matching in a text editor and lexical analysis in a compiler.
 	</p>
 	<h3>Basic Concepts</h3>
@@ -274,7 +274,7 @@ Creates an array with substrings of s divided at occurrence of "regex". "regex" 
 		<h3 id="lessonTitle"></h3>
 		<p id="lessonintro"></p>
 		<div>
-		<img src="check1.PNG" width=15 height=15> Example:
+		<img src="images/check1.png" width=15 height=15> Example:
 		<p id="lessonexample">
 		</p>
 		</div>
@@ -394,7 +394,7 @@ function switchLesson(lesson){
 	document.getElementById("progbar").style.width=progBar+"%";
 	document.getElementById("progbar").innerHTML=progBar+"%";	
 	document.getElementById('lessonTitle').innerHTML="  <img src='expl.png' width=20 height=30>"+lessons[lesson-1].title;
-	document.getElementById('lessonintro').innerHTML= "<img src='check1.PNG' width=15 height=15> "+lessons[lesson-1].intro;
+	document.getElementById('lessonintro').innerHTML= "<img src='images/check1.png' width=15 height=15> "+lessons[lesson-1].intro;
 	document.getElementById('lessonexample').innerHTML= lessons[lesson-1].example;
 
 	switchEx(1);	
@@ -473,7 +473,7 @@ function checkRE() {
 			table.rows[i].cells[1].innerHTML=currentinputs[i].replace(exp, str);
 			if(currentinputs[i].match(exp)!= null){
 				if(table.rows[i].cells[0].innerHTML =="Match"){
-					table.rows[i].cells[2].innerHTML="<img src='check1.PNG' width=15 height=15>";
+					table.rows[i].cells[2].innerHTML="<img src='images/check1.png' width=15 height=15>";
 						//lessons[currentLesson].exercises[currentEx].rows[i].state=1;
 				}else if(table.rows[i].cells[0].innerHTML =="No Match"){
 					table.rows[i].cells[2].innerHTML="<img src='check2.PNG' width=15 height=15>";
@@ -482,7 +482,7 @@ function checkRE() {
 				if(table.rows[i].cells[0].innerHTML =="Match"){
 				table.rows[i].cells[2].innerHTML="<img src='check2.PNG' width=15 height=15>";
 				}else if(table.rows[i].cells[0].innerHTML =="No Match"){
-				table.rows[i].cells[2].innerHTML="<img src='check1.PNG' width=15 height=15>";
+				table.rows[i].cells[2].innerHTML="<img src='images/check1.png' width=15 height=15>";
 				}
 			}
         }
