@@ -281,7 +281,7 @@ Creates an array with substrings of s divided at occurrence of "regex". "regex" 
 	</div>
 <br>
 	<div id="ex">
-		<img src='example.png' width=20 height=25 style="float:left">
+		<img src='images/example.png' width=20 height=25 style="float:left">
 		<h3> Exercises:</h3>
 		<div class="w3-light-grey w3-round-xlarge" style="width: 100%">
 			<div id="progbar" class="w3-container w3-round-xlarge w3-light-green w3-center" style="width:1%;">0</div>
@@ -393,7 +393,7 @@ function switchLesson(lesson){
 	fillProgBar();
 	document.getElementById("progbar").style.width=progBar+"%";
 	document.getElementById("progbar").innerHTML=progBar+"%";	
-	document.getElementById('lessonTitle').innerHTML="  <img src='expl.png' width=20 height=30>"+lessons[lesson-1].title;
+	document.getElementById('lessonTitle').innerHTML="  <img src='images/expl.png' width=20 height=30>"+lessons[lesson-1].title;
 	document.getElementById('lessonintro').innerHTML= "<img src='images/check1.png' width=15 height=15> "+lessons[lesson-1].intro;
 	document.getElementById('lessonexample').innerHTML= lessons[lesson-1].example;
 
@@ -476,11 +476,11 @@ function checkRE() {
 					table.rows[i].cells[2].innerHTML="<img src='images/check1.png' width=15 height=15>";
 						//lessons[currentLesson].exercises[currentEx].rows[i].state=1;
 				}else if(table.rows[i].cells[0].innerHTML =="No Match"){
-					table.rows[i].cells[2].innerHTML="<img src='check2.PNG' width=15 height=15>";
+					table.rows[i].cells[2].innerHTML="<img src='images/check2.png' width=15 height=15>";
 				}
 			}else{
 				if(table.rows[i].cells[0].innerHTML =="Match"){
-				table.rows[i].cells[2].innerHTML="<img src='check2.PNG' width=15 height=15>";
+				table.rows[i].cells[2].innerHTML="<img src='images/check2.png' width=15 height=15>";
 				}else if(table.rows[i].cells[0].innerHTML =="No Match"){
 				table.rows[i].cells[2].innerHTML="<img src='images/check1.png' width=15 height=15>";
 				}
@@ -503,7 +503,7 @@ function check(){
 	//another way : can use lessons[currentLesson].exercises[currentEx].rows[i].state
 	let allAreTrue=true; 
 		for (let i =1 ; i <table.rows.length; i++) {
-			if(table.rows[i].cells[2].innerHTML=='<img src="check2.PNG" width="15" height="15">' || table.rows[i].cells[2].innerHTML==""){
+			if(table.rows[i].cells[2].innerHTML=='<img src="images/check2.png" width="15" height="15">' || table.rows[i].cells[2].innerHTML==""){
 				allAreTrue=false;
 			//console.log(table.rows[i].cells[2].innerHTML);
 			}
