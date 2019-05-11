@@ -1,0 +1,148 @@
+/*
+Responsive Template Name: Free CSS
+File: Layout CSS
+Author: OS Templates & Free CSS
+Author URI: http://www.os-templates.com/ & http://www.free-css.com/
+Licence: Private - NOT FOR RE-USE / DISTRIBUTION or REDISTRIBUTION
+*/
+body{
+	background-color:#082d06
+}
+header{
+	color: white;
+}
+#whatisregex, #languages {
+	border-bottom: 3px solid green;
+}
+#languages pre{
+	width: 100%;
+	// overflow-x: auto;
+	 white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;  
+
+}
+#hgroup{
+	//border: 1px solid gray;
+	//border-radius: 15px 50px;
+}
+html, .container{margin:0; padding:0; font-size:100%; color:#333333; background-color:#E2E2E2}
+#topnav li{//float: left;}
+
+ #header{margin:0 auto; font-size:.8em;}
+
+#hgroup{margin-left: 9px}
+#topnav,#header{width: 100%}
+#header{padding:30px 0 0 0}
+#header #hgroup{display:block; float:left; margin-bottom:30px}
+#header #hgroup h1, #header #hgroup h2{margin:0; font-weight:normal; text-transform:none}
+#header #hgroup h1{font-size:5em}
+#header #hgroup h2{font-size:1em}
+#header ul{margin:0; padding:0; list-style:none}
+#header ul li{display:inline-block}
+#header #topnav{display:block; margin:0; padding:20px 15px; text-align:center; clear:both; border-radius:8px 8px 0 0; border:0 solid #333333}
+#header #topnav, #header #topnav a{color:#FFFFFF; background-color:#075b00; font-size:1.2em}
+#header #topnav li{margin:0 1px 0 0}
+#header #topnav li:first-child{margin-left:11%}
+
+#header #topnav li:last-child{margin-right:0}
+
+#header #topnav a:hover {background-color: #0d4c09;}
+#header #topnav a.active {background-color: #0d4c09;}
+
+table#css1{width:100%;}
+table#css1, table#css1 td{box-sizing:border-box; border:1px solid #D6D6D6; border-collapse:collapse; text-align:center}
+table#css1 thead tr{color:#000000; background-color:#CCCCCC}
+table#css1 th{font-weight:400;}
+table#css1 th, table#css1 td{padding:5px}
+table#css1 td[colspan]{height:25px}
+
+form, fieldset, legend{margin:0; padding:0; border:none}
+legend{display:none}
+
+@font-face{font-family:"font-awesome"; src:url("fonts/font-awesome.eot"); src:url("fonts/font-awesome.eot#iefix") format("embedded-opentype"), url("fonts/font-awesome.woff") format("woff"), url("fonts/font-awesome.ttf") format("truetype"), url("fonts/font-awesome.svg#fontello") format("svg"); font-weight:normal; font-style:normal}
+
+
+@media screen and (max-width:320px){
+#header #hgroup h1{font-size:3.1em}
+#header #topnav li{margin:0}
+
+	#lessonTitle,#ex h3 ,#exTitle{font-size: 1.2em}
+	#lessonintro, #lessonexample{font-size: .8em}
+// #header{max-width:95%; margin:0 auto}
+#header #hgroup{display:block; float:none; margin-bottom:20px}
+#header #topnav ul li{display:block; width:80%; margin-top:3px; text-transform:uppercase;}
+#header #topnav ul li a{display:block; padding:0px; background-color:#082d06; font-size:.9em}
+//#header #topnav ul li:first-child{margin:0}
+#header #topnav ul li{margin-left:10%}
+
+}
+
+
+@media screen and (min-width:321px) and (max-width:641px){
+	#header #hgroup h1{font-size:3.5em}
+	#lessonTitle,#ex h3 ,#exTitle{font-size: 1.5em}
+	#lessonintro, #lessonexample{font-size: .9em}
+// #header{max-width:95%; margin:0 auto}
+#header #hgroup{display:block; float:none; margin-bottom:20px}
+#header #topnav ul li{display:block; width:80%; margin-top:3px; text-transform:uppercase;}
+#header #topnav ul li a{display:block; padding:0px; background-color:#082d06; font-size:.9em}
+//#header #topnav ul li:first-child{margin:0}
+#header #topnav ul li{margin-left:10%}
+
+#whatisregex h3{font-size: 2.4em}
+#whatisregex h4{font-size: 2em}
+#whatisregex tr{font-size: .9em}
+
+}
+
+@media screen and  (max-width:550px){
+	#whatisregex table{
+		font-size: 0.9em;
+		max-width: 100%;}
+}
+@media screen and (min-width:642px) and (max-width:767px){
+ #header{ margin:0 auto}
+#header #topnav ul li{margin-bottom:10px;}
+#header #topnav li{margin:0 0px 0 0;}
+#header #hgroup{display:block; float:none; margin-bottom:20px}
+#header #topnav, #header #topnav a{font-size:0.98em}
+#header #topnav ul li:last-child{margin-right:0}
+#header #topnav ul li:first-child{margin-left:5%}
+
+table#css1 th:nth-child(n+2), table#css1 td:nth-child(n+2){display:none}
+
+}
+
+@media screen and (min-width:768px) and (max-width:802px){
+//	#header{max-width:80px; margin:0 auto}
+
+
+#header #topnav, #header #topnav a{font-size:0.98em; }
+#header #topnav ul li{width: auto;}
+#header #topnav ul li:last-child{margin-right:0}
+#header #topnav ul li:first-child{margin-left:11%}
+}
+@media screen and (min-width:803px) and (max-width:959px){
+#header{ margin:0 auto}
+
+
+
+#header #topnav, #header #topnav a{font-size:1.1em; }
+//#header #topnav ul li{width: auto;}
+#header #topnav ul li:last-child{margin-right:0}
+#header #topnav ul li:first-child{margin-left:12%}
+}
+
+@media screen and (min-width:960px){
+ #header{width: 100%; margin:0 auto}
+	#lesson h3 ,#ex h3,#exTitle{font-size: 2.2em}
+
+	#lesson p{font-size: 1em;}
+	#lesson table{
+		font-size: 1.2em;
+		margin: 3px
+	}
+}
