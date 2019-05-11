@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://maeyler.github.io//Auto/work/CFG1.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="viewport" content="width=device-width">
+	<title>Regex Tutorial</title>
+
+<!-- header için deneme :
+	  -->
+	  <link rel="stylesheet" href="layout1.css" type="text/css" media="all">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<!--tablolar için css 
+<link rel="stylesheet" href="https://yu8.us/0_mycss-161006.html?cat=regex&com=1" media="screen,print" >
+-->
+
+	<style type="text/css">
+		body{
+			//border: 2px solid red;
+		}
+		.container{
+			border: 2px solid green;
+			border-radius: 5px ;
+			//border-color: black;
+			width: 80%;
+			margin: 10%;
+			//margin-right: 7%;
+			margin-top: 2%;
+			padding: 2%;
+			padding-top: .1%;
+		}
+		.found { color: #2BB554; }
+		#cntbtn{
+			width: 30%;
+			height: 40px;
+			color: white;
+			background-color: #92D132;
+			//background-color: YellowGreen;
+			border-radius: 20px ;
+		}
+		.lsnbtn{
+			border-radius: 15px 50px;
+			color: white;
+			background-color: green;
+			//#05842B;
+ 			//w3-round-xlarge ;
+ 			width:180px;
+ 			height:85%;
+		}
+		.nxtlsn{
+			margin-right: 0 !important;
+			margin-left:auto !important;
+			float: right;
+		}
+		.exbtn{
+			width:150px;
+			height: 35px;
+			background-color: #92D132;
+			color: white;
+			border-radius: 15px 50px;
+		}
+		#lesson{
+			 border: 1px solid gray;
+			 border-radius: 10px;
+			 padding: 2%;
+			 padding-top: 0;
+			 margin-top: 14px;
+			 font-size: 1.2em;
+		}
+		table, th {
+			 border-collapse: collapse;
+ 			 border-bottom: 1px solid lightgrey;
+ 			 text-align: left;
+		}
+		td{
+ 			 //border-bottom: 1px solid lightgrey;
+		}
+		div{
+			 //border: 1px solid gray;
+		}
+		tr:hover {background-color: #f5f5f5;}
+		#table1 tr:nth-child(odd) {background-color: #e5cecf;}
+		#table1,#table2,#table3,#table4,#table5,#table6,#table7,#table8 tr:nth-child(even) {background-color: beige;}
+		#table2 tr:nth-child(odd) {background-color: #c4d3cd}
+		#table3 tr:nth-child(odd) {background-color: #d1c2af}
+		#table4 tr:nth-child(odd) {background-color: #e5d6a5}
+		#table5 tr:nth-child(odd) {background-color: #bde5a5}
+		#table6 tr:nth-child(odd) {background-color: #d5bae0}
+		#table7 tr:nth-child(odd) {background-color: #e5c5e2}
+		#table8 tr:nth-child(odd) {background-color: #d3deed}
+
+		#table1,#table2,#table3,#table4,#table5,#table6,#table7,#table8 th,td{
+			padding: 2px;
+			padding-left:8px 
+		}
+		#table1,#table2,#table3,#table4,#table5,#table6,#table7,#table8 th{
+			height: 20px;
+		}
+		
+		
+	</style>
+</head>
+<body>
+
+<div class="wrapper row2">
+  <header id="header">
+    <div id="hgroup">
+      <h1>Regular Expressions</h1>
+      <h5>Interactive Tutorial To Learn Regular Expressions</h5>
+    </div>
+
+    <nav id="topnav">
+      <ul><li><a href="#Regex Intro" title="What is Regex" >What is Regex</a></li><li><a href="#The Lessons" title="Regex Lessons" >Regex Lessons</a></li><li><a href="#languages" title="Regex & Languages" >Regex & Programming Languages</a></li><li><a href="#Contact" title="Contact Me" >Contact Me</a></li></ul>
+    </nav>
+  </header>
+</div>
+
+
+
+
+<div class="container">
+<!--	<h2 style="text-align: center;">Lessons: </h2>
+	-->
+	<!-- ..... -->
+<a name="Regex Intro"></a>
+<div id="whatisregex">
+	<h3>What Is Regex ?</h3>
+	<p><img src="check1.PNG" width=15 height=15>
+		Regex,Regexp or Regular Expressions:
+		<br>
+		A regular expression is a special text string for describing a search pattern. In other way: A Sequence of characters that defines a search pattern, it helps to validate a series of characters for matching. So, regular expression basically helps to describe the complex pattern in the text. It can be used search a particular string, pattern, replace text, data.
+		<br>  <img src="check1.PNG" width=15 height=15>
+		 Pattern matches may vary from a precise equality to a very general similarity, as controlled by the metacharacters. For example, . is a very general pattern, [a-z] (match all lower case letters from 'a' to 'z') is less general and a is a precise pattern (matches just 'a'). The metacharacter syntax is designed specifically to represent prescribed targets in a concise and flexible way to direct the automation of text processing of a variety of input data, in a form easy to type using a standard ASCII keyboard.
+		<br><img src="check1.PNG" width=15 height=15>
+		 A regex processor translates a regular expression in the above syntax into an internal representation which can be executed and matched against a string representing the text being searched in.
+	</p>
+	<h3>History</h3>
+	<p>
+	<img src="check1.PNG" width=15 height=15> Regular expressions originated in 1951, when mathematician Stephen Cole Kleene described regular languages using his mathematical notation called regular sets. These arose in theoretical computer science, in the subfields of automata theory (models of computation) and the description and classification of formal languages. Other early implementations of pattern matching include the SNOBOL language, which did not use regular expressions, but instead its own pattern matching constructs.
+	<br><img src="check1.PNG" width=15 height=15> 
+Regular expressions entered popular use from 1968 in two uses: pattern matching in a text editor and lexical analysis in a compiler.
+	</p>
+	<h3>Basic Concepts</h3>
+	<p>
+		A regular expression, often called a pattern, is an expression used to specify a set of strings required for a particular purpose. A simple way to specify a finite set of strings is to list its elements or members. However, there are often more concise ways to specify the desired set of strings. For example, the set containing the three strings "Handel", "Händel", and "Haendel" can be specified by the pattern H(ä|ae?)ndel; we say that this pattern matches each of the three strings. In most formalisms, if there exists at least one regular expression that matches a particular set then there exists an infinite number of other regular expressions that also match it—the specification is not unique. Most formalisms provide the following operations to construct regular expressions.
+	</p>
+	<h3>Cheat Sheet</h3>
+	✽ <a href="#chars">Characters</a><br />
+✽ <a href="#quantifiers">Quantifiers</a><br />
+✽ <a href="#morechars">More Characters</a><br />
+✽ <a href="#logic">Logic</a><br />
+✽ <a href="#whitespace">More White-Space</a><br />
+✽ <a href="#morequants">More Quantifiers</a><br />
+✽ <a href="#classes">Character Classes</a><br />
+✽ <a href="#anchors">Anchors and Boundaries</a><br />
+
+	<p>
+		
+<a id="chars"></a>
+<h4>Characters</h4>
+<table id="table1" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Character</th><th width="80%" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr ><td>\d</td><td>Most engines: one digit<br/>from 0 to 9</td><td>file_\d\d</td><td>file_25</td></tr><tr><td>\d</span></td><td>.NET, Python 3: one Unicode digit in any script</td><td>file_\d\d</td><td>file_9੩</td></tr><tr><td><span class="mono">\w</span></td><td>Most engines: "word character": ASCII letter, digit or underscore</td><td>\w-\w\w\w</td><td>A-b_1</td></tr><tr><td><span class="mono">\w</span></td><td>.Python 3: "word character": Unicode letter, ideogram, digit, or underscore</td><td>\w-\w\w\w</td><td>字-ま_۳</td></tr><tr ><td><span class="mono">\w</span></td><td>.NET: "word character": Unicode letter, ideogram, digit, or connector</td><td>\w-\w\w\w</td><td>字-ま‿۳</td></tr><tr><td><span class="mono">\s</span></td><td>Most engines: "whitespace character": space, tab, newline, carriage return, vertical tab</td><td>a\sb\sc</td><td>a b<br />c</td></tr><tr><td><span class="mono">\s</span></td><td>.NET, Python 3, JavaScript: "whitespace character": any Unicode separator</td><td>a\sb\sc</td><td>a b<br />c</td></tr><tr><td><span class="mono">\D</span></td><td>One character that is not a <i>digit</i> as defined by your engine's <i>\d</i></td><td>\D\D\D</td><td>ABC</td></tr><tr ><td><span class="mono">\W</span></td><td>One character that is not a <i>word character</i> as defined by your engine's <i>\w</i></td><td>\W\W\W\W\W</td><td>*-+=)</td></tr><tr><td><span class="mono">\S</span></td><td>One character that is not a <i>whitespace character</i> as defined by your engine's <i>\s</i></td><td>\S\S\S\S</td><td>Yoyo</td></tr></table><br /><br />
+
+
+<a id="quantifiers"></a>
+<h4>Quantifiers</h4>
+
+<table id="table2" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Quantifier</th><th width="200" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr ><td><span class="mono">+</span></td><td>One or more</td><td>Version \w-\w+</td><td>Version A-b1_1</td></tr><tr ><td><span class="mono">{3}</span></td><td>Exactly three times</td><td>\D{3}</td><td>ABC</td></tr><tr ><td><span class="mono">{2,4}</span></td><td>Two to four times</td><td>\d{2,4}</td><td>156</td></tr><tr><td><span class="mono">{3,}</span></td><td>Three or more times</td><td>\w{3,}</td><td>regex_tutorial</td></tr><tr><td><span class="mono">*</span></td><td>Zero or more times</td><td>A*B*C*</td><td>AAACC</td></tr><tr><td><span class="mono">?</span></td><td>Once or none</td><td>plurals?</td><td>plural</td></tr></table><br /><br />
+
+
+
+<a id="morechars"></a>
+<h4>More Characters</h4>
+
+<table id="table3" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Character</th><th width="200" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr ><td><span class="mono"><b>.</b></span></td><td>Any character except line break</td><td>a.c</td><td>abc</td></tr><tr><td><span class="mono"><b>.</b></span></td><td>Any character except line break</td><td>.*</td><td>whatever, man.</td></tr><tr><td><span class="mono">\<b>.</b></span></td><td>A period (special character: needs to be escaped by a \)</td><td>a\.c</td><td>a.c</td></tr><tr ><td><span class="mono">\</span></td><td>Escapes a special character</td><td>\.\*\+\?&nbsp;&nbsp;&nbsp;&nbsp;\$\^\/\&#92;</td><td>.*+?&nbsp;&nbsp;&nbsp;&nbsp;$^/&#92;</td></tr><tr><td><span class="mono">\</span></td><td>Escapes a special character</td><td>\[\{\(\)\}\]</td><td>[{()}]</td></tr></table><br /><br />
+
+
+
+<a id="logic"></a>
+<h4>Logic</h4>
+
+<table id="table4" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Logic</th><th width="200" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr ><td><span class="mono">|</span></td><td> Alternation / OR operand</td><td>22|33</td><td>33</td></tr><tr ><td><span class="mono">( … )</span></td><td>Capturing group</td><td>A(nt|pple)</td><td>Apple (captures "pple")</td></tr><tr><td><span class="mono">\1</span></td><td>Contents of Group 1</td><td>r(\w)g\1x</td><td>regex</td></tr><tr><td><span class="mono">\2</span></td><td>Contents of Group 2</td><td>(\d\d)\+(\d\d)=\2\+\1</td><td>12+65=65+12</td></tr><tr ><td><span class="mono">(?: … )</span></td><td>Non-capturing group</td><td>A(?:nt|pple)</td><td>Apple</td></tr></table><br /><br />
+
+
+<a id="whitespace"></a>
+<h4>More White-Space</h4>
+
+<table id="table5" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Character</th><th width="200" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr ><td><span class="mono">\t</span></td><td>Tab</td><td>T\t\w{2}</td><td>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab</td></tr><tr><td><span class="mono">\r</span></td><td>Carriage return character</td><td>see below</td><td></td></tr><tr><td><span class="mono">\n</span></td><td>Line feed character</td><td>see below</td><td></td></tr><tr><td><span class="mono">\r\n</span></td><td>Line separator on Windows</td><td>AB\r\nCD</td><td>AB<br />CD</td></tr><tr><td><span class="mono">\N</span></td><td>Perl, PCRE (C, PHP, R…): one character that is not a line break</td><td>\N+</td><td>ABC</td></tr><tr><td><span class="mono">\h</span></td><td>Perl, PCRE (C, PHP, R…), Java: one horizontal whitespace character: tab or Unicode space separator</td><td></td><td></td></tr><tr><td><span class="mono">\H</span></td><td>One character that is not a horizontal whitespace</td><td></td><td></td></tr><tr><td><span class="mono">\v</span></td><td>.NET, JavaScript, Python, Ruby: vertical tab</td><td></td><td></td></tr><tr><td><span class="mono">\v</span></td><td>Perl, PCRE (C, PHP, R…), Java: one vertical whitespace character: line feed, carriage return, vertical tab, form feed, paragraph or line separator</td><td></td><td></td></tr><tr ><td><span class="mono">\V</span></td><td>Perl, PCRE (C, PHP, R…), Java: any character that is not a vertical whitespace</td><td></td><td></td></tr><tr ><td><span class="mono">\R</span></td><td>Perl, PCRE (C, PHP, R…), Java: one line break (carriage return + line feed pair, and all the characters matched by \v)</td><td></td><td></td></tr></table><br /><br />
+
+
+<a id="morequants"></a>
+<h4>More Quantifiers</h4>
+
+<table id="table6" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Quantifier</th><th width="200" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr><td><span class="mono">+</span></td><td>The + (one or more) is "greedy"</td><td>\d+</td><td>12345</td></tr><tr><td><span class="mono">?</span></td><td>Makes quantifiers "lazy"</td><td>\d+?</td><td>1 in <b>1</b>2345</td></tr><tr><td><span class="mono">*</span></td><td>The * (zero or more) is "greedy"</td><td>A*</td><td>AAA</td></tr><tr><td><span class="mono">?</span></td><td>Makes quantifiers "lazy"</td><td>A*?</td><td>empty in AAA</td></tr><tr><td><span class="mono">{2,4}</span></td><td>Two to four times, "greedy"</td><td>\w{2,4}</td><td>abcd</td></tr><tr><td><span class="mono">?</span></td><td>Makes quantifiers "lazy"</td><td>\w{2,4}?</td><td>ab in <b>ab</b>cd</td></tr></table><br /><br />
+
+<a id="classes"></a>
+<h4>Character Classes</h4>
+
+<table id="table7" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Character</th><th width="200" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr><td><span class="mono">[ … ]</span></td><td>One of the characters in the brackets</td><td>[AEIOU]</td><td>One uppercase vowel</td></tr><tr ><td><span class="mono">[ … ]</span></td><td>One of the characters in the brackets</td><td>T[ao]p</td><td><i>Tap</i> or <i>Top</i></td></tr><tr><td><span class="mono">-</span></td><td>Range indicator</td><td>[a-z]</td><td>One lowercase letter</td></tr><tr ><td><span class="mono">[x-y]</span></td><td>One of the characters in the range from x to y</td><td>[A-Z]+</td><td>GREAT</td></tr><tr ><td><span class="mono">[ … ]</span></td><td>One of the characters in the brackets</td><td>[AB1-5w-z]</td><td>One of either: A,B,1,2,3,4,5,w,x,y,z</td></tr><tr ><td><span class="mono">[x-y]</span></td><td>One of the characters in the range from x to y</td><td>[&ensp;-~]+</td><td>Characters in the printable section of the <a href="http://www.asciitable.com/" target="_blank">ASCII table</a>.</td></tr><tr><td><span class="mono">[^x]</span></td><td>One character that is not x</td><td>[^a-z]{3}</td><td>A1!</td></tr><tr ><td><span class="mono">[^x-y]</span></td><td>One of the characters <b>not</b> in the range from x to y</td><td>[^&ensp;-~]+</td><td>Characters that are <b>not</b> in the printable section of the <a href="http://www.asciitable.com/" target="_blank">ASCII table</a>.</td></tr><tr><td><span class="mono">[\d\D]</span></td><td>One character that is a digit or a non-digit</td><td>[\d\D]+</td><td>Any characters, inc-<br />luding new lines, which the regular dot doesn't match</td></tr><tr ><td><span class="mono">[\x41]</span></td><td>Matches the character at hexadecimal position 41 in the ASCII table, i.e. A</td><td>[\x41-\x45]{3}</td><td>ABE</td></tr></table><br /><br />
+
+
+<a id="anchors"></a>
+<h4>Anchors and Boundaries</h4>
+
+<table id="table8" width="600" border="0" style="table-layout:auto;"><tr><th width="100" scope="col">Anchor</th><th width="200" scope="col">Legend</th><th width="150" scope="col">Example</th><th width="150" scope="col">Sample Match</th></tr><tr><td><span class="mono">^</span></td><td>Start of string or start of line depending on multiline mode. (But when [^inside brackets], it means "not")</td><td>^abc .*</td><td>abc (line start)</td></tr><tr ><td><span class="mono">$</span></td><td>End of string or end of line depending on multiline mode. Many engine-dependent subtleties.</td><td>.*? the end$</td><td>this is the end</td></tr><tr><td><span class="mono">\A</span></td><td>Beginning of string<br />(all major engines except JS)</td><td>\Aabc[\d\D]*</td><td>abc (string...<br />...start)</td></tr><tr><td><span class="mono">\z</span></td><td>Very end of the string<br />Not available in Python and JS</td><td>the end\z</td><td>this is...\n...<b>the end</b></td></tr><tr ><td><span class="mono">\Z</span></td><td>End of string or (except Python) before final line break<br />Not available in JS</td><td>the end\Z</td><td>this is...\n...<b>the end</b>\n</td></tr><tr><td><span class="mono">\G</span></td><td>Beginning of String or End of Previous Match<br />
+	  .NET, Java, PCRE (C, PHP, R…), Perl, Ruby</td><td></td><td></td></tr><tr><td><span class="mono">\b</span></td><td>Word boundary<br /> Most engines: position where one side only is an ASCII letter, digit or underscore</td><td>Bob.*\bcat\b</td><td>Bob ate the cat</td></tr><tr><td><span class="mono">\b</span></td><td>Word boundary<br />.NET, Java, Python 3, Ruby: position where one side only is a Unicode letter, digit or underscore</td><td>Bob.*\b\кошка\b</td><td>Bob ate the кошка</td></tr><tr><td><span class="mono">\B</span></td><td>Not a word boundary</td><td>c.*\Bcat\B.*</td><td>copycats</td></tr></table><br/>
+
+	</p>
+
+</div>
+<a name="js"></a> 
+<br>
+<div id="languages">
+	<h4>Regular Expressions & Programming Languages</h4>
+	✽ <a href="#js">JavaScript</a><br />
+	✽ <a href="#java">Java</a><br />
+	✽ <a href="#Python">Python</a><br />
+
+<a name="js"></a> 
+<h4>JavaScript</h4>
+	<pre>
+✽ Creating a regular expression:
+	var re = /ab+c/;        
+	OR      
+	var re = new RegExp('ab+c');
+✽ Example:
+	var myRe = /d(b+)d/g;
+	var myArray = myRe.exec('cdbbdbsbz');
+	console.log('The value of lastIndex is ' + myRe.lastIndex);
+
+	>> "The value of lastIndex is 5"
+✽ General Methods :
+	exec, test, match, matchAll, search, replace, split ..
+	</pre>
+<a name="java"></a> 
+<h4>Java</h4>
+	<pre>
+✽ Using regular expression:
+	String pattern = "[0-9]";
+	String s= "123123";
+	s.matches(pattern);
+✽ General Methods :
+	s.matches("regex")  :
+Evaluates if "regex" matches s. Returns only true if the WHOLE string can be matched.
+	s.split("regex")  :
+Creates an array with substrings of s divided at occurrence of "regex". "regex" is not included in the result.
+✽ Imports:
+	import java.util.regex.*;
+	* boolean isMatch = Pattern.matches(String regex, String inputStr)
+	* Pattern ptrn = Pattern.compile(String regex)
+	  Matcher matcher = ptrn.matcher(String inputStr)
+	</pre>
+<a name="Python"></a>
+<h4>Python</h4>
+	<pre>
+✽ Imports:
+	import re		
+✽ Using regular expression:
+	matchObject = re.search(pattern, input_str, flags=0)
+✽ General Methods :
+	re.search()
+	re.findall()
+	re.finditer()
+	re.sub() #finding and replacing
+	re.compile #Compiling a pattern for performance
+	</pre>
+
+
+</div>
+<hr>
+<a name="The Lessons"></a> 
+	<div id="lesson">
+		<h3 id="lessonTitle"></h3>
+		<p id="lessonintro"></p>
+		<div>
+		<img src="check1.PNG" width=15 height=15> Example:
+		<p id="lessonexample">
+		</p>
+		</div>
+	</div>
+<br>
+	<div id="ex">
+		<img src='example.png' width=20 height=25 style="float:left">
+		<h3> Exercises:</h3>
+		<div class="w3-light-grey w3-round-xlarge" style="width: 100%">
+			<div id="progbar" class="w3-container w3-round-xlarge w3-light-green w3-center" style="width:1%;">0</div>
+		</div>
+		<!-- Exercise -->
+		<h4 id="exTitle"></h4>
+		<div  class="w3-light-grey w3-round-large" style="width: 100% ;padding-left:1% ">
+			<table id="myTable" style="width:90%;text-align:left "></table>
+			<div>
+				<input id="pat" type="text" placeholder="Try your pattern here" style="max-width:100%;width:65%" onkeyup="checkRE()"> 
+				<input id="cntbtn" type="button" value="Continue" onclick="check();">
+			</div>	
+		</div>
+	<div  style="height: 25px;margin:5px">
+	<input type="button" value="?" style="height:25px;float:left;margin-right:5px" onclick="showAns();"> <div style="font-size: 0.8em;padding-top:7px" id="answer">Show answer</div>
+	</div>
+		<div id="navigateEx" style="margin-top:3%;width:100%; text-align: center; ">
+			<input type="button" value="Previous Exercise" onclick="prevExercise();" class="exbtn" style="">
+			<input type="button" value="Next Exercise"  onclick="nextExercise();"  class="exbtn">
+		</div>
+		<br>
+		<div style="width:100%;height: 50px">
+			<input type="button" class="lsnbtn" onclick="prevlesson();" value="<Previous Lesson" >
+			<input type="button" class="lsnbtn nxtlsn" onclick="nextlesson();" value="Next Lesson>">
+		</div>
+	</div>	
+
+
+	<script>
+		"use strict";
+		var progBar=0;
+		var currentLesson=1;
+		var currentEx=1;
+		var lessons=[
+//lesson 1:
+{title:"Lesson 1 : Introduction & Characters",
+intro:"<b>Regular Expressions</b> Sequence of characters that defines a search pattern, it helps to validate a series of characters for matching. So, regular expression basically helps to describe the complex pattern in the text. It can be used search a particular string, pattern, replace text, data.<br>My tutorial contains examples and exercises about lesson topic. Try to write the pattern that does the task listed in table (matche,not match..). Click 'Continue' to check your pattern and go next exercise",
+example:"Pattern: /a/<br>Text: 'Random Text'<br>=> 'R<span class=found>a</span>ndom Text' (Match) ",
+exercises:[
+ {title:"Exercise 1.1 : Matching Alphabet",
+ rows:[
+ {task:"Match",text:"abcabc",state:0},
+ {task:"Match",text:"aabc",state:0},
+ {task:"No Match",text:"abbc",state:0}
+ ],hint:"Try common characters, Try them with and without []",state:0},
+  {title:"Exercise 1.2 : Matching Digits",
+ rows:[
+ {task:"Match",text:"abc123xyz",state:0},
+ {task:"Match",text:"define '123'",state:0},
+ {task:"Match",text:"var g = 123;",state:0},
+ {task:"No Match",text:"onetwothree",state:0}
+ ],hint:"Try common digits, Or [0-9]",state:0
+}
+]
+},
+//lesson 2:
+{title:"Lesson 2 : The Dot",
+intro:"Dot(.) metacharacter, and can match any single character (letter, digit, whitespace, everything). You may notice that this actually overrides the matching of the period character, so in order to specifically match a period, you need to escape the dot by using a slash \\. accordingly.",
+example:"Pattern: /./<br>Text: 'Random123*?#.'<br>=> '<span class=found>Random123*?#.</span>' (Match) ",
+exercises:[
+//exercise 1:
+{title:"Exercise 2.1 :",
+rows:[{task:"Match",text:"dot.",state:0},
+{task:"Match",text:"2.5",state:0},
+{task:"No Match",text:"abc123",state:0}],
+hint:"Try \\. ",state:0
+},
+//exercise 2:
+{title:"Exercise 2.2:",
+rows:[{task:"No Match",text:"random text",state:0},
+{task:"No Match",text:"'Goodmorning=1'",state:0},
+{task:"Match",text:"123.*_*",state:0}],
+hint:"Try \\. ",state:0}
+],
+},
+//lesson 3:
+{title:"Lesson 3 : Square Brackets",
+intro:"We can get the match for specific characters using regular expressions, by defining them inside square brackets. For example, the pattern <b>[abc]</b> will only match a single a, b, or c letter and nothing else.",
+example:"Pattern: /[eo]/<br>Text: 'hello'<br>=> 'h<span class=found>e</span>ll<span class=found>o</span>' (Match) ",
+exercises:[
+//exercise 1:
+{title:"Exercise 3.1 :",
+rows:[{task:"Match",text:"can",state:0},
+{task:"Match",text:"wan",state:0},
+{task:"Match",text:"fan",state:0},
+{task:"No Match",text:"pan",state:0},
+{task:"No Match",text:"san",state:0}],
+hint:"Try [cwf] ",state:0
+}],
+},
+{title:"Lesson 4 : Excluding Specific Characters",
+intro:"To excludes specific characters we use the square brackets and the ^ (hat). For example, the pattern <b>[^abc]</b> will match any single character except for the letters a, b, or c.",
+example:"Pattern: /[^h]/<br>Text: 'hello'<br>=> 'h<span class=found>ello</span>' (Match) ",
+exercises:[
+//exercise 1:
+{title:"Exercise 4.1 :",
+rows:[{task:"Match",text:"hog",state:0},
+{task:"Match",text:"dog",state:0},
+{task:"Match",text:"log",state:0},
+{task:"Match",text:"fog",state:0},
+{task:"No Match",text:"tog",state:0}],
+hint:"Try [^tog] ",state:0
+}],
+}
+];
+function switchLesson(lesson){
+	currentEx=1;
+	progBar=0
+	fillProgBar();
+	document.getElementById("progbar").style.width=progBar+"%";
+	document.getElementById("progbar").innerHTML=progBar+"%";	
+	document.getElementById('lessonTitle').innerHTML="  <img src='expl.png' width=20 height=30>"+lessons[lesson-1].title;
+	document.getElementById('lessonintro').innerHTML= "<img src='check1.PNG' width=15 height=15> "+lessons[lesson-1].intro;
+	document.getElementById('lessonexample').innerHTML= lessons[lesson-1].example;
+
+	switchEx(1);	
+}
+var table= document.getElementById("myTable");
+function switchEx(ex){
+	document.getElementById('exTitle').innerHTML= lessons[currentLesson-1].exercises[ex-1].title;
+	pattern.value="";
+	currentinputs=[];
+	table.innerHTML="";
+	table.innerHTML=
+	'<tr style="text-align:left; border-bottom:1px solid black"><td><b>Task</b></td><td><b>Text</b></td><td><b>Check	</b></td></tr>';
+	for(let r of lessons[currentLesson-1].exercises[ex-1].rows){
+		var row=table.insertRow();
+		row.insertCell(0).innerHTML=r.task;
+		row.insertCell(1).innerHTML=r.text;
+		row.insertCell(2).innerHTML="";
+	}
+	for(let r of table.rows){
+    	currentinputs.push(r.cells[1].innerHTML);
+    }
+	//console.log(currentinputs);
+	//table.rows[0].cells[0].innerHTML="";
+	//document.getElementById('lessonexample').innerHTML= lessons[lesson].example;
+}
+function nextExercise(){
+	document.getElementById("answer").innerHTML="Show answer";
+
+	//console.log(lessons[currentLesson-1].exercises.length)
+	if(lessons[currentLesson-1].exercises.length>currentEx){
+		currentEx++;
+		switchEx(currentEx);
+	}else{
+		nextlesson();
+	}
+}
+function prevExercise(){
+	document.getElementById("answer").innerHTML="Show answer";
+	if(currentEx>1){
+		currentEx--;
+		switchEx(currentEx);
+	}else{
+		prevlesson();
+	}
+}
+function nextlesson(){
+	document.getElementById("answer").innerHTML="Show answer";
+	if(currentLesson< lessons.length){
+		currentLesson++;
+		switchLesson(currentLesson);
+	}
+}
+
+function prevlesson(){
+	document.getElementById("answer").innerHTML="Show answer";
+	if(currentLesson>1){
+		currentLesson--;
+		switchLesson(currentLesson);
+	}
+}
+//check regex:
+var pattern= document.getElementById("pat");
+let currentinputs=[];
+
+function checkRE() {
+
+    if (pattern.value) {//if pattern input is not empty
+		try{
+        const exp = new RegExp(pattern.value,'g');
+        const str = "<span class=found>$&</span>";
+        // out.innerHTML = inp.value.replace(exp, str);
+        //console.log(table.rows.length);
+        for (let i =1 ; i <table.rows.length; i++) {
+			//-----------aşagıdakinii açınca bir problem gozukur:
+       		//console.log(table.rows[i].cells[1].innerHTML);
+			table.rows[i].cells[1].innerHTML=currentinputs[i].replace(exp, str);
+			if(currentinputs[i].match(exp)!= null){
+				if(table.rows[i].cells[0].innerHTML =="Match"){
+					table.rows[i].cells[2].innerHTML="<img src='check1.PNG' width=15 height=15>";
+						//lessons[currentLesson].exercises[currentEx].rows[i].state=1;
+				}else if(table.rows[i].cells[0].innerHTML =="No Match"){
+					table.rows[i].cells[2].innerHTML="<img src='check2.PNG' width=15 height=15>";
+				}
+			}else{
+				if(table.rows[i].cells[0].innerHTML =="Match"){
+				table.rows[i].cells[2].innerHTML="<img src='check2.PNG' width=15 height=15>";
+				}else if(table.rows[i].cells[0].innerHTML =="No Match"){
+				table.rows[i].cells[2].innerHTML="<img src='check1.PNG' width=15 height=15>";
+				}
+			}
+        }
+		}catch{
+			console.log("error with coloring matched text")
+		}
+
+    }else{
+    	for (let i =1 ; i <currentinputs.length; i++) {
+       		table.rows[i].cells[1].innerHTML=currentinputs[i];
+			table.rows[i].cells[2].innerHTML="";
+       }
+    }
+}
+
+function check(){
+//console.log(lessons[currentLesson-1].exercises[currentEx-1].state)
+	//another way : can use lessons[currentLesson].exercises[currentEx].rows[i].state
+	let allAreTrue=true; 
+		for (let i =1 ; i <table.rows.length; i++) {
+			if(table.rows[i].cells[2].innerHTML=='<img src="check2.PNG" width="15" height="15">' || table.rows[i].cells[2].innerHTML==""){
+				allAreTrue=false;
+			//console.log(table.rows[i].cells[2].innerHTML);
+			}
+		}
+	//console.log(allAreTrue)
+	if(allAreTrue){
+		//console.log(currentLesson+","+currentEx)
+		//console.log(lessons[currentLesson-1].exercises[currentEx-1].state)
+		if(lessons[currentLesson-1].exercises[currentEx-1].state==0){
+			
+			
+
+				progBar+=100/lessons[currentLesson-1].exercises.length;
+				document.getElementById("progbar").style.width=progBar+"%";
+				document.getElementById("progbar").innerHTML=progBar+"%";
+				lessons[currentLesson-1].exercises[currentEx-1].state=1;
+				//console.log(lessons[currentLesson-1].exercises[currentEx-1].state==1)
+			}
+		nextExercise();
+	}
+}
+function fillProgBar(){
+	var checkedEx=0;
+	for (let i =0 ; i < lessons[currentLesson-1].exercises.length; i++) {
+		if(lessons[currentLesson-1].exercises[i].state==1){
+			//console.log(currentLesson+","+currentEx);
+			//console.log(lessons[currentLesson-1].exercises[i].state);
+			checkedEx++;
+			}
+
+	}
+			//console.log(currentLesson+","+currentEx)
+			//console.log(lessons[currentLesson-1].exercises[currentEx-1].state==1)
+
+				progBar=checkedEx*100/lessons[currentLesson-1].exercises.length;
+				document.getElementById("progbar").style.width=progBar+"%";
+				document.getElementById("progbar").innerHTML=progBar+"%";
+				//console.log(lessons[currentLesson-1].exercises[currentEx-1].state==1);
+}
+function showAns (){
+	if(document.getElementById("answer").innerHTML!="Show answer"){
+		document.getElementById("answer").innerHTML="Show answer";
+		return;
+	}
+	let ans=lessons[currentLesson-1].exercises[currentEx-1].hint;
+	document.getElementById("answer").innerHTML=" "+ans;
+}
+
+
+
+switchLesson(currentLesson);
+</script>
+
+</body>
+<br>
+<a name="Contact"></a> 
+<footer style="text-align: center;font-size: 0.8em">
+  <p>Posted by: Alaa MARAWI
+  <br><a href="https://github.com/AlaaMarawi">
+  Github</a> , <a href="mailto:alaa.ma96@gmail.com">
+ Email</a><br>References:<br><a href="https://alf.nu/RegexGolf">
+ 1</a> , <a href="https://regexone.com/references/javascript">
+ 2</a> , <a href="https://en.wikipedia.org/wiki/Regular_expression">3</a> , <a href="https://www.rexegg.com/">4</a> , <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">5</a></p>
+  
+</footer>
+</html>
