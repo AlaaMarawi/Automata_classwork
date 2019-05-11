@@ -36,5 +36,5 @@ CW#6
 </li>
 <h3>Project</h3>
 <li>
-<a href= "https://alaamarawi.github.io/Automata_classwork/Project_RegExp/RegexTutorial-v4.html">Regular Expression Tutorial</a>
+<a href= "https://alaamarawi.github.io/Automata_classwork/Project_RegExp/RegexTutorial-v7.html">Regular Expression Tutorial</a>
 </li>
