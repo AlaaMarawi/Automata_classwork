@@ -5,6 +5,9 @@ Author: OS Templates & Free CSS
 Author URI: http://www.os-templates.com/ & http://www.free-css.com/
 Licence: Private - NOT FOR RE-USE / DISTRIBUTION or REDISTRIBUTION
 */
+html{
+	min-width: 400px;
+}
 body{
 	background-color:#082d06
 }
@@ -78,6 +81,9 @@ legend{display:none}
 //#header #topnav ul li:first-child{margin:0}
 #header #topnav ul li{margin-left:10%}
 
+#whatisregex h3{font-size: 2.3em}
+#whatisregex h4{font-size: 1.95em}
+#whatisregex tr{font-size: .88em}
 }
 
 
@@ -98,11 +104,6 @@ legend{display:none}
 
 }
 
-@media screen and  (max-width:550px){
-	#whatisregex table{
-		font-size: 0.9em;
-		max-width: 100%;}
-}
 @media screen and  (max-width:450px){
 	#container{
 		width: 96%;
@@ -121,6 +122,12 @@ legend{display:none}
 
 	}
 }
+@media screen and  (max-width:550px){
+	#whatisregex table{
+		font-size: 0.9em;
+		max-width: 100%;}
+}
+
 
 @media screen and (min-width:642px) and (max-width:767px){
  #header{ margin:0 auto}
