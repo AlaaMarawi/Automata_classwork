@@ -35,7 +35,7 @@ CW#6
 <a href= "https://alaamarawi.github.io/Automata_classwork/CW6/PDA1.html">Push-down automata: Modify delta() for given grammer</a>
 </li>
 <li>
-CW#6
+CW#7
 <a href= "https://alaamarawi.github.io/Automata_classwork/CW7/microJ3.html">Sample program using MicroJ3</a>
 </li>
 <h3>Project</h3>
